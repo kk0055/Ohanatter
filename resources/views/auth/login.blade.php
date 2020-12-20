@@ -137,7 +137,7 @@ class="bg-gray-100 border-2 w-full rounded-lg" value="ohana@test.com">
         <form action="" action="{{ route('register') }}" method="post">
           @csrf
           <button type="submit"  style="outline:none">
-          <img src="{{ asset('/image/Ohana/SanglassOhana.jpg') }}" alt="" class="" width="100px" height="100px" style="border-radius:50%;"></button>
+          <img src="{{ asset('/image/Ohana/Sanglassohana.jpg') }}" alt="" class="" width="100px" height="100px" style="border-radius:50%;"></button>
     <div class="mb-4">
     <label for="email" class="sr-only">Email</label>
     <input type="hidden" name="email" id="email" placeholder="Your Email"
