@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Posty</title>
+  <title>Ohanatter</title>
 
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body class="bg-gray-400">
-  <nav class="p-6 bg-white flex justify-between mb-2">
+  <nav class="p-4 bg-white flex justify-between mb-2">
     <ul class="flex items-center">
 
      @if(auth()->user()) 
@@ -24,7 +24,7 @@
     <a href="{{ route('posts') }}" class="p-3">Post</a>
   </li>
     </ul>
-
+    {{-- <h1>Ohanatter</h1> --}}
     <ul class="flex items-center">
    @auth
    <li>
