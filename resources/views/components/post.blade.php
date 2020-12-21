@@ -8,10 +8,10 @@
     <a href="{{ route('users.posts' , $post->user) }}" class="font-bold">{{ $post->user->name }}</a>
     <span class="text-gray-600">{{ $post->created_at->diffForHumans() }}</span>
     <p class="mb-2"> {{ $post->body}}</p>
-
+   
         {{-- Delete Button --}}
     @can('delete',$post)
-    <div class="flex justify-end">
+    <div class="flex justify-end" >
       <form action="{{ route('post.destroy', $post) }}"  method="post">
         @csrf
         @method('delete')
@@ -26,7 +26,11 @@
 
 <form action="{{ route('post.likes' ,$post->id) }}" method="post" class="mr-1">
  @csrf
-<button type="submit" class="focus:outline-none"><i class="fas fa-thumbs-up text-red-500 ml-2 "></i></button>
+ <div id="app">
+ <like-component></like-component> 
+ </div>
+
+ <button type="submit" class="text-pink-500 focus:outline-none ml-2"><i class="fas fa-thumbs-up"></i></button>
 </form>
 {{-- @else --}}
 <form action="{{ route('post.likes', $post) }}" method="post" class="mr-1">

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostLikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Likes
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('post.likes');
+Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('post.likes');

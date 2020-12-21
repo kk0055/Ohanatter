@@ -33,8 +33,8 @@ class PostLikeController extends Controller
     //     Mail::to($post->user)->send(new PostLiked(auth()->user(),$post));
     // }
         
-
-        return back();
+        return ['user_id' =>  $request->user()->id];  
+        // return back();
     }
 
     public function destroy(Request $request,Post $post)

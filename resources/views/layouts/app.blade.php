@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 </head>
-<body class="bg-gray-400">
+<body class="bg-gray-400" >
   <nav class="p-4 bg-white flex justify-between mb-2">
     <ul class="flex items-center">
 
@@ -49,5 +50,6 @@
        </ul>
   </nav>
   @yield('content')
+  <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
