@@ -2,6 +2,8 @@
 
 
 <div class="mb-4">
+  
+  <img src="{{ $post->user->profile_image }}" alt="" class="" width="100px" height="100px" style="border-radius:50%;">
   <img src="/storage/profile_image/{{ $post->user->profile_image }}" alt="" class="" width="100px" height="100px" style="border-radius:50%;">
     <a href="{{ route('users.posts' , $post->user) }}" class="font-bold">{{ $post->user->name }}</a>
     <span class="text-gray-600">{{ $post->created_at->diffForHumans() }}</span>

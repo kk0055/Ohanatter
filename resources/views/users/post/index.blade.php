@@ -4,6 +4,7 @@
     <div class="flex justify-center">
    <div class="w-8/12 ">
 <div class="p-6">
+  <img src="{{ $user->profile_image }}" alt="" class="" width="100px" height="100px" style="border-radius:50%;">
   <img src="/storage/profile_image/{{ $user->profile_image }}" alt="" class="" width="100px" height="100px" style="border-radius:50%;">
   <h1 class="text-2xl font-medium mb-1">{{ $user->name }}</h1>
 
