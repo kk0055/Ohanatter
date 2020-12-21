@@ -16,7 +16,7 @@
 
      @if(auth()->user()) 
     <li>
-     <a href="{{ route('users.posts', auth()->user()) }}" class="p-3" >My post</a>
+     <a href="{{ route('users.posts', auth()->user()) }}" class="p-3" >{{ auth()->user()->username }}</a>
    </li>
     @endif
   
@@ -24,12 +24,9 @@
     <a href="{{ route('posts') }}" class="p-3">Post</a>
   </li>
     </ul>
-    {{-- <h1>Ohanatter</h1> --}}
+    <img src="{{ asset('/image/Ohana/Ohana.jpg') }}" alt="" class="" width="30px" height="30px" style="border-radius:50%;">
     <ul class="flex items-center">
    @auth
-   <li>
-    <a href="" class="p-3" >{{ auth()->user()->username }}</a>
-  </li>
 
   <li>
  <form action="{{ route('logout') }}" method="post" class="p-3 inline">
