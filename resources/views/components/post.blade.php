@@ -26,9 +26,12 @@
 
 <form action="{{ route('post.likes' ,$post->id) }}" method="post" class="mr-1">
  @csrf
- <div id="app">
+
+ {{-- Component --}}
+ {{-- <div id="app">
  <like-component></like-component> 
- </div>
+ </div> --}}
+
 
  <button type="submit" class="text-pink-500 focus:outline-none ml-2"><i class="fas fa-thumbs-up"></i></button>
 </form>

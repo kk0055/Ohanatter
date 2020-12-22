@@ -1937,6 +1937,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['post'],
   mounted: function mounted() {
     console.log('Component mounted.');
   },
@@ -1946,7 +1947,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    like: function like() {
+    likeBtn: function likeBtn() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -1956,7 +1957,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.post("api//posts/{post}/likes");
+                return axios.get("api//posts/".concat(_this.post.id, "/likes"));
 
               case 2:
                 response = _context.sent;
@@ -1972,10 +1973,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 7:
-                _this.photo.likes_count = _this.photo.likes_count + 1;
-                _this.photo.liked_by_user = true;
+                return _context.abrupt("return", true);
 
-              case 9:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -38338,14 +38338,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("button", {
-      on: {
-        click: function($event) {
-          $event.preventDefault()
-          return _vm.like($event)
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.likeBtn($event)
+          }
         }
-      }
-    })
+      },
+      [_vm._v("x")]
+    )
   ])
 }
 var staticRenderFns = []

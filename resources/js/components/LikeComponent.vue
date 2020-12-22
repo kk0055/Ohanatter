@@ -1,13 +1,14 @@
 <!-- <like-component> </like-component> -->
 <template>
 <div class="container">
-  <button @click.prevent="like" ></button>
+  <button @click.prevent="likeBtn" >x</button>
 
 </div>
 </template>
 
 <script>
     export default {
+       props: ['post'],
              mounted() {
             console.log('Component mounted.')
         },
@@ -18,16 +19,17 @@
        }
     ,
     methods: {
-     async like () {
-      const response = await axios.post(`api//posts/{post}/likes`)
-      console.log(response)
-      if (response.status !== OK) {
-        this.$store.commit('error/setCode', response.status)
-        return false
-      }
-      this.photo.likes_count = this.photo.likes_count + 1
-      this.photo.liked_by_user = true
-    },
+     async likeBtn (id) {
+      await axios.post(`api//posts/${id}/likes`)
+      
+             .then(res => {
+                    this.like = res.data.id;
+                }).catch(function(error) {
+                    console.log(error);
+                });
+             console.log(error);
+    
+    }
     }
     }
 </script>
