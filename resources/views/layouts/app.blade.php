@@ -33,7 +33,7 @@
   <li>
  <form action="{{ route('logout') }}" method="post" class="p-3 inline">
   @csrf
-<button type="submit" >
+<button type="submit" class="focus:outline-none ml-2" >
  Logout
 </button>
  </form>
