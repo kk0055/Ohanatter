@@ -20,7 +20,8 @@
      <a href="{{ route('users.posts', auth()->user()) }}" class="p-3" >{{ auth()->user()->username }}</a>
    </li>
     @endif
-  
+
+   
   <li>
     <a href="{{ route('posts') }}" class="p-3">Post</a>
   </li>
@@ -43,9 +44,9 @@
     <a href="{{ route('login') }}" class="p-3">Login</a>
   </li>
    
-     <li>
+     {{-- <li>
       <a href="{{ route('register') }}" class="p-3">Register</a>
-    </li>
+    </li> --}}
     @endguest
        </ul>
   </nav>

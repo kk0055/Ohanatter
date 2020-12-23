@@ -1,36 +1,46 @@
-<!-- <like-component> </like-component> -->
 <template>
-<div class="container">
-  <button @click.prevent="likeBtn" >x</button>
-
-</div>
+    <span>
+        <!-- <a href="#"  @click.prevent="unFavorite(post)">
+            <i  class="fa fa-heart">x</i>
+        </a> -->
+        <a   @click="favorite(postId)">
+            <i  class="fa fa-heart"></i>
+        </a>
+    </span>
 </template>
 
 <script>
-    export default {
-       props: ['post'],
-             mounted() {
-            console.log('Component mounted.')
-        },
-       data () {
-           return {
-               like: null,
-           }
-       }
-    ,
-    methods: {
-     async likeBtn (id) {
-      await axios.post(`api//posts/${id}/likes`)
-      
-             .then(res => {
-                    this.like = res.data.id;
-                }).catch(function(error) {
-                    console.log(error);
-                });
-             console.log(error);
-    
+     export default {
+        props: ['postId','userId'],
+        // data: function() {
+        //     return {
+        //         isFavorited: '',
+        //     }
+        // }
+
+        // mounted() {
+        //     this.isFavorited = this.isFavorite ? true : false;
+        // },
+
+        // computed: {
+        //     isFavorite() {
+        //         return this.favorited;
+        //     },
+        // },
+
+        methods: {
+            favorite(postId) {
+              let url = `/api/favorite/${postId}`
+
+                axios.post(url,{
+                    user_id:this.userId
+                })
+                    .then(response =>{
+                     console.log(response.data)
+                     })
+                    .catch(response => console.log(response.data));
+            },
     }
-    }
-    }
+     }
 </script>
 

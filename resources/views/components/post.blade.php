@@ -29,7 +29,10 @@
 
  {{-- Component --}}
  {{-- <div id="app">
- <like-component></like-component> 
+ <like-component
+ :post-id="{{ json_encode($post->id) }}"
+ :user-id="{{ json_encode($post->user->id) }}"
+ ></like-component> 
  </div> --}}
 
 

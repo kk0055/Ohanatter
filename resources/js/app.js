@@ -4,9 +4,19 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import axios from 'axios';
+
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+
+const token = document.head.querySelector('meta[name="csrf-token"]')
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
+}
 
 /**
  * The following block of code may be used to automatically register your
