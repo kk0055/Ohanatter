@@ -10,7 +10,7 @@ use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/' , [HomeController::class, 'index']);
+// Route::get('/' , [HomeController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -20,8 +20,8 @@ Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 //Login
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'store']);
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::post('/', [LoginController::class, 'store']);
 
 //Register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
