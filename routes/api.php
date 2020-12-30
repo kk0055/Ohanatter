@@ -15,14 +15,14 @@ use App\Http\Controllers\PostLikeController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 //Likes
 // Route::post('/posts/{id}/likes', [PostLikeController::class, 'store'])->name('post.likes');
 
-Route::post('/favorite/{post}', [PostLikeController::class, 'store'])->name('post.likes');
+// Route::post('/favorite/{post}', [PostLikeController::class, 'store'])->name('post.likes');
 
 // Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('post.likes');
 

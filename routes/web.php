@@ -35,6 +35,22 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.d
 
 
 //Likes
-Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('post.likes');
-Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('post.likes');
+// Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('post.likes');
+// Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('post.likes');
 
+
+
+
+//like routes
+// Route::post('/like','PostController@getlike');
+// Route::post('/like/{id}','PostController@like');
+
+Route::post('/like', [PostLikeController::class, 'getlike']);
+Route::post('/like/{id}', [PostLikeController::class, 'like']);
+
+Route::post('/dislike', [PostLikeController::class, 'getDislike']);
+Route::post('/dislike/{id}', [PostLikeController::class, 'dislike']);
+
+//dislike routes
+// Route::post('/dislike','PostController@getDislike');
+// Route::post('/dislike/{id}','PostController@dislike');

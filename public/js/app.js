@@ -1919,32 +1919,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['postId', 'userId'],
-  // data: function() {
-  //     return {
-  //         isFavorited: '',
-  //     }
-  // }
-  // mounted() {
-  //     this.isFavorited = this.isFavorite ? true : false;
-  // },
-  // computed: {
-  //     isFavorite() {
-  //         return this.favorited;
-  //     },
-  // },
+  props: ['post'],
+  data: function data() {
+    return {
+      totallike: '',
+      totalDislike: ''
+    };
+  },
   methods: {
-    favorite: function favorite(postId) {
-      var url = "/api/favorite/".concat(postId);
-      axios.post(url, {
-        user_id: this.userId
+    likePost: function likePost() {
+      var _this = this;
+
+      axios.post('/like/' + this.post, {
+        post: this.post
       }).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (response) {
-        return console.log(response.data);
+        _this.getlike();
+      })["catch"]();
+    },
+    getlike: function getlike() {
+      var _this2 = this;
+
+      axios.post('/like', {
+        post: this.post
+      }).then(function (response) {
+        console.log(response.data.post.like);
+        _this2.totallike = response.data.post.like;
+      });
+    },
+    disLikePost: function disLikePost() {
+      var _this3 = this;
+
+      axios.post('/dislike/' + this.post, {
+        post: this.post
+      }).then(function (response) {
+        _this3.getDislike();
+      })["catch"]();
+    },
+    getDislike: function getDislike() {
+      var _this4 = this;
+
+      axios.post('/dislike', {
+        post: this.post
+      }).then(function (response) {
+        console.log(response.data.post.dislike);
+        _this4.totalDislike = response.data.post.dislike;
       });
     }
+  },
+  mounted: function mounted() {
+    this.getlike(), this.getDislike();
   }
 });
 
@@ -37540,18 +37566,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", [
-    _c(
-      "a",
-      {
+  return _c("div", { staticClass: "container" }, [
+    _c("a", { attrs: { href: "" } }, [
+      _c("i", {
+        staticClass: "fa fa-thumbs-up text-pink-500 focus:outline-none ml-2",
+        attrs: { "aria-hidden": "true" },
         on: {
           click: function($event) {
-            return _vm.favorite(_vm.postId)
+            $event.preventDefault()
+            return _vm.likePost($event)
           }
         }
-      },
-      [_c("i", { staticClass: "fa fa-heart" })]
-    )
+      })
+    ]),
+    _vm._v(" "),
+    _c("span", { staticClass: "ml-1" }, [_vm._v(_vm._s(_vm.totallike))]),
+    _vm._v(" "),
+    _c("a", { attrs: { href: "http://" } }, [
+      _c("i", {
+        staticClass: "text-blue-500 focus:outline-none ml-2 fas fa-sad-cry",
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.disLikePost($event)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("span", { staticClass: "ml-1" }, [_vm._v(_vm._s(_vm.totalDislike))])
   ])
 }
 var staticRenderFns = []

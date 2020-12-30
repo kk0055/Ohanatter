@@ -24,8 +24,11 @@
     </form>  
     @endauth
     @if ($posts->count())
+    <div id="app">
     @foreach ($posts as $post)
   <x-post :post="$post"/>
+ 
+   
     
     @endforeach
     {{ $posts->links() }}

@@ -16,19 +16,19 @@ class PostLikeController extends Controller
         $this->middleware('auth');
     }
 
-    // public function store(Request $request,Post $id)
-    // {
-    //     // $post = Post::find($id);
+    public function store(Request $request,Post $id)
+    {
+        // $post = Post::find($id);
   
-    //     $post = Post::where('id', $id)->with('likes')->first();
+        $post = Post::where('id', $id)->with('likes')->first();
   
-    //     if (! $post) {
-    //         abort(404);
-    //     }
-    //     $post->likes()->attach(Auth::user()->id);
+        if (! $post) {
+            abort(404);
+        }
+        $post->likes()->attach(Auth::user()->id);
 
-    //     return response()->json( ['liked' => true], 201 );
-    // }
+        return response()->json( ['liked' => true], 201 );
+    }
 
 
 
@@ -41,26 +41,65 @@ class PostLikeController extends Controller
     }
 
     // Store method 基本変更してないやつ
-public function store(Request $request,Post $post)
-{
-//     //ユーザがすでにLikeしてたら409返す
-//    if($post->likedBy($request->user())) {
-//        return response(null,409);
-//    }
+// public function store(Request $request,Post $post)
+// {
+// //     //ユーザがすでにLikeしてたら409返す
+// //    if($post->likedBy($request->user())) {
+// //        return response(null,409);
+// //    }
 
-    $post->likes()->create([
-        'user_id' =>  $request->user()->id
-    ]);
+//     $post->likes()->create([
+//         'user_id' =>  $request->user()->id
+//     ]);
 
-    //Like押されたらMail送信
-    //ユーザーが該当のポストにイイネをしていない場合のみ送信
-// if(!$post->likes()->onlyTrashed()->where('user_id',$request->user()->id)->count()) {
-//     Mail::to($post->user)->send(new PostLiked(auth()->user(),$post));
-// }
+//     //Like押されたらMail送信
+//     //ユーザーが該当のポストにイイネをしていない場合のみ送信
+// // if(!$post->likes()->onlyTrashed()->where('user_id',$request->user()->id)->count()) {
+// //     Mail::to($post->user)->send(new PostLiked(auth()->user(),$post));
+// // }
     
-    return back();
+//     return back();
+// }
+
+public function getlike(Request $request)
+{
+    $post = Post::find($request->post);
+   
+    return response()->json([
+        'post'=>$post,
+    ]);
 }
 
+
+public function like(Request $request , $id)
+{
+    $post = Post::where('id', $id)->with('likes')->first();
+    $value = $post->like;
+    $post->like = $value+1;
+    $post->save();
+    return response()->json([
+        'message'=>'Thanks',
+    ]);
+}  
+
+public function getDislike(Request $request)
+{
+    $post = Post::find($request->post);
+    return response()->json([
+        'post'=>$post,
+    ]);
+}
+
+public function dislike(Request $request ,$id)
+{
+    $post = Post::where('id', $id)->with('likes')->first();
+    $value = $post->dislike;
+    $post->dislike = $value+1;
+    $post->save();
+    return response()->json([
+        'message'=>'Thanks',
+    ]);
+}
 
 }
 

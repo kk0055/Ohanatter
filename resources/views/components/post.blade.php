@@ -20,38 +20,12 @@
     </div>
     @endcan
     {{--End Delete Button --}}
+
 <div class="flex items-center">
-@auth
-{{-- @if (!$post->likedBy(auth()->user())) --}}
 
-<form action="{{ route('post.likes' ,$post->id) }}" method="post" class="mr-1">
- @csrf
-
- {{-- Component --}}
- {{-- <div id="app">
- <like-component
- :post-id="{{ json_encode($post->id) }}"
- :user-id="{{ json_encode($post->user->id) }}"
- ></like-component> 
- </div> --}}
-
-
- <button type="submit" class="text-pink-500 focus:outline-none ml-2"><i class="fas fa-thumbs-up"></i></button>
-</form>
-{{-- @else --}}
-<form action="{{ route('post.likes', $post) }}" method="post" class="mr-1">
-@csrf
-@method('delete')
-<button type="submit" class="text-blue-500 focus:outline-none ml-2"><i class="fas fa-sad-cry"></i></button>
-</form>
-
-{{-- @endif --}}
-@endauth 
-<i class="fas fa-heart text-pink-500 ml-2"></i>
-<span class="ml-1">{{ $post->likes->count() }} 
+  <like-component
+  :post="{{ $post->id }}"
+  ></like-component> 
  
-  {{-- {{ Str::plural('like',$post->likes->count()) }} --}}</span>    
-
-
-    </div>
+     </div>
   </div>
