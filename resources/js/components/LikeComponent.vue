@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-       <a href=""><i @click.prevent="likePost" class="fa fa-thumbs-up text-pink-500 focus:outline-none ml-2" aria-hidden="true"></i></a>
+       <a href=""><i @click.prevent="likePost" class="fa fa-thumbs-up text-pink-500 focus:outline-none ml-2" aria-hidden="true">x</i></a>
         <span class="ml-1">{{ totallike }}</span>  
 <!-- <button type="submit" class="text-blue-500 focus:outline-none ml-2"><i class="fas fa-sad-cry"></i></button> -->
-<a href="http://"><i @click.prevent="disLikePost" class="text-blue-500 focus:outline-none ml-2 fas fa-sad-cry"></i></a>
+<a href="http://"><i @click.prevent="disLikePost" class="text-blue-500 focus:outline-none ml-2 fas fa-sad-cry">x</i></a>
     <span class="ml-1">{{ totalDislike }}</span>   
 <!-- <i class="fas fa-heart text-pink-500 ml-2"></i> -->
   
