@@ -10,7 +10,7 @@ use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/' , [HomeController::class, 'index']);
+Route::get('/' , [PostController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

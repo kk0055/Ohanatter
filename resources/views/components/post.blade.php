@@ -22,10 +22,13 @@
     {{--End Delete Button --}}
 
 <div class="flex items-center">
-
+  
+  @if (Auth::user())
   <like-component
   :post="{{ $post->id }}"
-  ></like-component> 
+  ></like-component>   
+  @endif
+  
  
      </div>
   </div>
