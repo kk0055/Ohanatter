@@ -2,7 +2,7 @@
 
 マレーシアのツイッター上のアイドルおはなたんのアカウントを使ってツイッターの様なことができるSNSアプリです。
 
-<img src="image/main.png">
+<img src="image/ohana/main.png">
 
 
 <h3>開発した背景</h3>
