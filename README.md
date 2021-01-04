@@ -11,7 +11,7 @@
 
 選んだおはなたんで投稿します。
 
-![post](https://user-images.githubusercontent.com/62654316/103500354-00be7c80-4e86-11eb-9169-1625ef2a0180.png)
+![post](https://user-images.githubusercontent.com/62654316/103502349-ea1b2400-4e8b-11eb-99dd-3565e562a643.png)
 
 自分が選んだおはなたんの投稿が確認できます。
 
