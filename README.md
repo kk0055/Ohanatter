@@ -1,17 +1,25 @@
 <h2>おはなったー</h2>
 
-マレーシアのツイッター上のアイドルおはなたんのアカウントを使ってツイッターの様なことができるSNSアプリです。
+マレーシアのツイッター上のアイドルおはなたんのアカウント（友人が運用するアカウント）を使ってツイッターの様なことができるSNSアプリです。
+
+
+ログイン画面。
+7種類のおはなたんから好きなキャラを選びます。
 
 ![ohanatter](https://user-images.githubusercontent.com/62654316/103500222-b3420f80-4e85-11eb-9606-9d26b3e4741e.png)
 
 
-![post](https://user-images.githubusercontent.com/62654316/103500241-bccb7780-4e85-11eb-86b1-99bf3cb15a79.png)
+選んだおはなたんで投稿します。
 
+![post](https://user-images.githubusercontent.com/62654316/103500354-00be7c80-4e86-11eb-9169-1625ef2a0180.png)
+
+自分が選んだおはなたんの投稿が確認できます。
 
 ![detail](https://user-images.githubusercontent.com/62654316/103500252-c48b1c00-4e85-11eb-9b35-0688dcd72fa7.png)
 
 
 <h3>開発した背景</h3>
+おはなたんを使ったアプリを作りたいなと思い作りました
 
 
 <h3>使用技術</h3>
